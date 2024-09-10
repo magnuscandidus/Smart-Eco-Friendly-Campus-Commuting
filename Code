@@ -1,0 +1,48 @@
+import random
+import time
+
+class IoTBicycle:
+    def __init__(self, bike_id):
+        self.bike_id = bike_id
+        self.usage_hours = 0
+        self.distance_traveled = 0  # in kilometers
+        self.battery_level = 100  # percentage
+        self.maintenance_status = 'OK'
+
+    def simulate_ride(self):
+        # Simulate a ride with random distance and time
+        distance = random.uniform(1, 5)  # distance in km
+        time_spent = random.uniform(10, 60)  # time in minutes
+        self.distance_traveled += distance
+        self.usage_hours += time_spent / 60  # converting minutes to hours
+        self.battery_level -= random.uniform(5, 10)  # decrease battery level
+
+        # Check if the bike needs maintenance
+        self.check_maintenance()
+
+        # Print ride stats
+        print(f"Bike {self.bike_id} traveled {distance:.2f} km in {time_spent:.2f} minutes.")
+
+    def check_maintenance(self):
+        if self.distance_traveled > 100 or self.battery_level < 20:
+            self.maintenance_status = 'Needs Maintenance'
+            print(f"Bike {self.bike_id} requires maintenance.")
+        else:
+            self.maintenance_status = 'OK'
+
+    def charge_battery(self):
+        self.battery_level = 100
+        print(f"Bike {self.bike_id} battery fully charged.")
+
+# Simulating a fleet of IoT-enabled bicycles
+fleet = [IoTBicycle(bike_id) for bike_id in range(1, 6)]
+
+# Simulate rides for all bicycles
+for bike in fleet:
+    for _ in range(5):  # Each bike goes for 5 rides
+        bike.simulate_ride()
+        time.sleep(1)
+
+# Check maintenance and battery status
+for bike in fleet:
+    print(f"Bike {bike.bike_id} - Maintenance Status: {bike.maintenance_status}, Battery: {bike.battery_level}%")
