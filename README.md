@@ -1,1 +1,3 @@
 # Smart-Eco-Friendly-Campus-Commuting
+The Smart Eco-Friendly Campus Commuting project focuses on revolutionizing campus transportation using IoT-based bicycles. By integrating real-time data collection and analytics, the system optimizes bicycle commuting efficiency, reducing both carbon emissions and operational costs. IoT sensors monitor bicycle health, enabling predictive maintenance that extends the life of each bike and reduces breakdowns. With this solution, campuses can achieve significant reductions in environmental impact while providing students and staff with an efficient, cost-effective, and eco-friendly commuting option.
+
